@@ -1,12 +1,12 @@
 # location-weather API 
 This is a API to determine the geographic center point based on geocode API google Map, HERE WeGo, Open Street Map and determine the Weather from OpenWeatherMap API using the coordinates receives from the geocoding APIs
 
-#Prerequisite
+# Prerequisite
 1. JAVA 8
 2. Maven
 3.Tomcat
 
-#Instruction to run the project
+# Instruction to run the project
 1. Clone the repository using the below command,
 
 git clone https://github.com/Alekhyasingi/location-weather.git
@@ -32,9 +32,9 @@ openweatherapi.apiKey=************************************
 
 
 3.Give maven clean install.
-$.Deploy the project into your tomcat server.
+4.Deploy the project into your tomcat server.
 
-#Accessing the API
+# Accessing the API
 1. Once the code is deployed to server , open Postman to Test the API.
 2. Enter the following URL as a GET request,
   localhost:8080/location/getWeather?locationName=<Your Location>
