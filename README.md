@@ -67,8 +67,8 @@ Output:
 
 # Test Case classes
 
-LocationResourceIntegrationTest.java
-LocationWeatherApplicationTests.java
+LocationResourceIntegrationTest.java <br/>
+LocationWeatherApplicationTests.java <br/>
 LocationWeatherServiceTest.java
 
 
