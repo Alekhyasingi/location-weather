@@ -33,24 +33,27 @@ public class OpenStreetMapService {
 		this.apiKey = apiKey;
 	}
 
-	
 	/**
 	 * 
-	 * This Method determines the Geoghraphic center point
-	 * using OpenStreetMaps
+	 * This Method determines the Geoghraphic center point using OpenStreetMaps
+	 * 
 	 * @param locationName
 	 * @return CenterPointLocation
 	 * @throws IOException
 	 */
 	public CenterPointLocation getCenterPointLocation(String locationName) throws IOException {
-		RestTemplate restTemplate = new RestTemplate();
-		Response response = restTemplate.getForObject(url + "?q=" + locationName + "&key=" + apiKey, Response.class);
-		if (response != null && response.getStatus().getCode() == 200 && response.getResults().size() > 0) {
-			CenterPointLocation cpl = new CenterPointLocation();
+		if (locationName != null && !locationName.isEmpty()) {
+			RestTemplate restTemplate = new RestTemplate();
+			Response response = restTemplate.getForObject(url + "?q=" + locationName + "&key=" + apiKey,
+					Response.class);
+			if (response != null && response.getStatus().getCode() == 200 && response.getResults().size() > 0) {
+				CenterPointLocation cpl = new CenterPointLocation();
 
-			cpl.setLatitude(response.getResults().get(0).getGeometry().getLat());
-			cpl.setLongitude(response.getResults().get(0).getGeometry().getLng());
-			return cpl;
+				//the first result from the API as the location of the city ("best match")
+				cpl.setLatitude(response.getResults().get(0).getGeometry().getLat());
+				cpl.setLongitude(response.getResults().get(0).getGeometry().getLng());
+				return cpl;
+			}
 		}
 		return null;
 

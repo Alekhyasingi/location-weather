@@ -35,11 +35,11 @@ public class LocationResource {
 	LocationWeatherService locationWeatherService;
 
 	@GetMapping("/getWeather")
-	public String getLocationWeather(@RequestParam(value = "locationName", defaultValue = "World") String locationName)
+	public String getLocationWeather(@RequestParam(value = "locationName") String locationName)
 			throws IOException {
 		Response response= locationWeatherService.getLocationWeather(locationName);
 		
-		return response!=null?response.toString():"ERROR";
+		return response!=null?response.toString():"{ERROR: Bad Request}";
 	}
 
 

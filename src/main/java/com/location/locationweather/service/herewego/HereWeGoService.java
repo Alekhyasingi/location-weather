@@ -35,27 +35,30 @@ public class HereWeGoService {
 
 	/**
 	 * 
-	 * This Method determines the Geoghraphic center point
-	 * using HERE WeGo API
+	 * This Method determines the Geoghraphic center point using HERE WeGo API
+	 * 
 	 * @param locationName
 	 * @return CenterPointLocation
 	 * @throws IOException
 	 */
 	public CenterPointLocation getCenterPointLocation(String locationName) throws IOException {
-		RestTemplate restTemplate = new RestTemplate();
-		Response response = restTemplate.getForObject(
-				url + "?languages=en-US&maxresults=4&searchtext=" + locationName + "&apiKey=" + apiKey, Response.class);
-		if (response != null && response.getResponse().getView().size() > 0) {
-			CenterPointLocation cpl = new CenterPointLocation();
+		if (locationName != null && !locationName.isEmpty()) {
+			RestTemplate restTemplate = new RestTemplate();
+			Response response = restTemplate.getForObject(
+					url + "?languages=en-US&maxresults=4&searchtext=" + locationName + "&apiKey=" + apiKey,
+					Response.class);
+			if (response != null && response.getResponse().getView().size() > 0) {
+				CenterPointLocation cpl = new CenterPointLocation();
 
 //the first result from the API as the location of the city ("best match")
-			cpl.setLatitude(response.getResponse().getView().get(0).getResult().get(0).getLocation()
-					.getDisplayPosition().getLatitude());
-			cpl.setLongitude(response.getResponse().getView().get(0).getResult().get(0).getLocation()
-					.getDisplayPosition().getLongitude());
-			return cpl;
-		} 
-			return null;
+				cpl.setLatitude(response.getResponse().getView().get(0).getResult().get(0).getLocation()
+						.getDisplayPosition().getLatitude());
+				cpl.setLongitude(response.getResponse().getView().get(0).getResult().get(0).getLocation()
+						.getDisplayPosition().getLongitude());
+				return cpl;
+			}
+		}
+		return null;
 	}
 
 }
