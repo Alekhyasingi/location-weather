@@ -14,19 +14,19 @@ git clone https://github.com/Alekhyasingi/location-weather.git
 2. Import the project into your IDE. Replace the application.properties files to below format
 
 
-googlemapapi.url=************************************
+googlemapapi.url=************************************ <br/>
 googlemapapi.apiKey=************************************
 
-herewegoapi.url=************************************
+herewegoapi.url=************************************ <br/>
 herewegoapi.apiKey=************************************
 
 
 
-openstreetmapapi.url=************************************
+openstreetmapapi.url=************************************ <br/>
 openstreetmapapi.apiKey=************************************
 
 
-openweatherapi.url=************************************
+openweatherapi.url=************************************ <br/>
 openweatherapi.apiKey=************************************
 
 
