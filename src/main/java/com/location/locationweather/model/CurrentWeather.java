@@ -8,6 +8,15 @@ public class CurrentWeather {
 
 	private String description;
 
+	public CurrentWeather() {
+	}
+
+	public CurrentWeather(Double temperature, String description) {
+
+		this.temperature = temperature;
+		this.description = description;
+	}
+
 	public Double getTemperature() {
 		return temperature;
 	}

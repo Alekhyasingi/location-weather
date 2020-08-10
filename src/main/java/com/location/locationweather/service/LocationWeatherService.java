@@ -40,7 +40,8 @@ public class LocationWeatherService {
 	}
 
 	public Response getLocationWeather(String locationName) throws IOException, NoResponseFoundException {
-		if (locationName.isEmpty())
+
+		if (locationName == null || locationName.isEmpty())
 			throw new NoResponseFoundException();
 
 		if (locationName.contains(" "))
@@ -54,24 +55,12 @@ public class LocationWeatherService {
 
 		if (gcp == null && hwg == null && osm == null)
 			throw new NoResponseFoundException();
-
+// Takes the first occured non null coordinates
 		CurrentWeather currWeather = openWeatherService
 				.getWeather(gcp != null ? gcp : (hwg != null ? hwg : (osm != null ? osm : null)));
 
 		return new Response(gcp, hwg, osm, currWeather);
 
-	}
-
-	public String replace(String str) {
-		String[] words = str.split(" ");
-		StringBuilder sentence = new StringBuilder(words[0]);
-
-		for (int i = 1; i < words.length; ++i) {
-			sentence.append("%20");
-			sentence.append(words[i]);
-		}
-
-		return sentence.toString();
 	}
 
 }
