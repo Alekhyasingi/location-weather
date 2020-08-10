@@ -1,13 +1,17 @@
-package com.location.locationweather.controller;
+package com.location.locationweather.resource;
 
 import java.io.IOException;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.server.ResponseStatusException;
 
+import com.location.locationweather.constants.Constants;
+import com.location.locationweather.exception.NoResponseFoundException;
 import com.location.locationweather.model.Response;
 import com.location.locationweather.service.LocationWeatherService;
 import com.location.locationweather.service.googlemap.GoogleMapService;
@@ -35,12 +39,14 @@ public class LocationResource {
 	LocationWeatherService locationWeatherService;
 
 	@GetMapping("/getWeather")
-	public String getLocationWeather(@RequestParam(value = "locationName") String locationName)
+	public Response getLocationWeather(@RequestParam(value = Constants.LOCATION_NAME) String locationName)
 			throws IOException {
-		Response response= locationWeatherService.getLocationWeather(locationName);
-		
-		return response!=null?response.toString():"{ERROR: Bad Request}";
-	}
+		try {
+			return locationWeatherService.getLocationWeather(locationName);
 
+		} catch (NoResponseFoundException exc) {
+			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, Constants.ERROR, exc);
+		}
+	}
 
 }
