@@ -43,23 +43,23 @@ localhost:8080/location/getWeather?locationName=LONDON
 
 Output:
 {
-    "googleMapsCenterPoint": {
-        "latitude": 51.5073509,
-        "longitude": -0.1277583
+    "googleMapsCenterPoint": { <br/>
+        "latitude": 51.5073509, <br/>
+        "longitude": -0.1277583 <br/>
+    }, <br/>
+    "hereWeGoCenterPoint": { <br/>
+        "latitude": 51.50643, <br/>
+        "longitude": -0.12721 <br/>
     },
-    "hereWeGoCenterPoint": {
-        "latitude": 51.50643,
-        "longitude": -0.12721
-    },
-    "openStreetMapCenterPoint": {
-        "latitude": 51.5073219,
-        "longitude": -0.1276474
-    },
-    "currentWeather": {
-        "temperature": 21.74,
-        "description": "overcast clouds and humidity will be 78%"
-    }
-}
+    "openStreetMapCenterPoint": { <br/>
+        "latitude": 51.5073219 <br/>
+        "longitude": -0.1276474 <br/>
+    }, <br/>
+    "currentWeather": { <br/>
+        "temperature": 21.74, <br/>
+        "description": "overcast clouds and humidity will be 78%" <br/>
+    } <br/>
+} <br/>
 
 # Test Case classes
 Functionality can be tested using the below classes.
