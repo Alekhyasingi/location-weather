@@ -14,19 +14,19 @@ git clone https://github.com/Alekhyasingi/location-weather.git
 2. Import the project into your IDE. Replace the application.properties files to below format
 
 
-googlemapapi.url=https://maps.googleapis.com/maps/api/geocode/json
+googlemapapi.url=************************************ <br/>
 googlemapapi.apiKey=************************************
 
-herewegoapi.url=https://geocoder.ls.hereapi.com/search/6.2/geocode.json
+herewegoapi.url=************************************ <br/>
 herewegoapi.apiKey=************************************
 
 
 
-openstreetmapapi.url=https://api.opencagedata.com/geocode/v1/json
+openstreetmapapi.url=************************************ <br/>
 openstreetmapapi.apiKey=************************************
 
 
-openweatherapi.url=http://api.openweathermap.org/data/2.5/onecall
+openweatherapi.url=************************************ <br/>
 openweatherapi.apiKey=************************************
 
 
@@ -64,6 +64,13 @@ Output:
  description=clear sky and humidity will be 61%<br/>
 }<br/>
 }
+
+# Test Case classes
+
+LocationResourceIntegrationTest.java <br/>
+LocationWeatherApplicationTests.java <br/>
+LocationWeatherServiceTest.java
+
 
 
 
