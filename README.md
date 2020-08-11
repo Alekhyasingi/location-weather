@@ -29,8 +29,8 @@ openstreetmapapi.apiKey=************************************
 openweatherapi.url=************************************ <br/>
 openweatherapi.apiKey=************************************
 
-
-3. Give maven clean install.<br/>
+3. Disable @SpringBootTest annotation in LocationWeatherApplicationTests.java, as it starts the server in same port for the test case
+3. Give mvn clean install.<br/>
 4. Deploy the project into your tomcat server.
 
 # Accessing the API
@@ -42,34 +42,33 @@ Example:
 localhost:8080/location/getWeather?locationName=LONDON
 
 Output:
-{<br/>
-"googleMapsCenterPoint:"<br/>
-{<br/>
- latitude=51.5073509,<br/>
- longitude=-0.1277583<br/>
-}<br/>
-"hereWeGoCenterPoint:"<br/>
-{<br/>
- latitude=51.50643,<br/>
- longitude=-0.12721<br/>
-}<br/>
-"openStreetMapCenterPoint:"<br/>
-{<br/>
- latitude=51.5073219,<br/>
- longitude=-0.1276474<br/>
-},<br/>
- "currentWeather":<br/>
- { <br/>
- temperature=27.02° Celsuis,<br/>
- description=clear sky and humidity will be 61%<br/>
-}<br/>
+{
+    "googleMapsCenterPoint": {
+        "latitude": 51.5073509,
+        "longitude": -0.1277583
+    },
+    "hereWeGoCenterPoint": {
+        "latitude": 51.50643,
+        "longitude": -0.12721
+    },
+    "openStreetMapCenterPoint": {
+        "latitude": 51.5073219,
+        "longitude": -0.1276474
+    },
+    "currentWeather": {
+        "temperature": 21.74,
+        "description": "overcast clouds and humidity will be 78%"
+    }
 }
 
 # Test Case classes
+Functionality can be tested using the below classes.
 
 LocationResourceIntegrationTest.java <br/>
 LocationWeatherApplicationTests.java <br/>
 LocationWeatherServiceTest.java
+
+Note: Enable @SpringBootTest annotation in LocationWeatherApplicationTests.java also please change the inputfields for CurrentWeather cw object in LocationWeatherApplicationTests.java before testing as it received the values from the actual API
 
 
 
