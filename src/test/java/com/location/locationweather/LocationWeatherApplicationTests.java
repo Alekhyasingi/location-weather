@@ -16,7 +16,7 @@ import com.location.locationweather.model.CenterPointLocation;
 import com.location.locationweather.model.CurrentWeather;
 import com.location.locationweather.model.Response;
 
-@SpringBootTest
+//@SpringBootTest
 @AutoConfigureMockMvc
 class LocationWeatherApplicationTests {
 
