@@ -29,7 +29,7 @@ openstreetmapapi.apiKey=************************************
 openweatherapi.url=************************************ <br/>
 openweatherapi.apiKey=************************************
 
-3. Disable @SpringBootTest annotation in LocationWeatherApplicationTests.java, as it starts the server in same port for the test case
+
 3. Give mvn clean install.<br/>
 4. Deploy the project into your tomcat server.
 
