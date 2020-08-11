@@ -42,7 +42,7 @@ Example:
 localhost:8080/location/getWeather?locationName=LONDON
 
 Output:
-{
+{ <br/>
     "googleMapsCenterPoint": { <br/>
         "latitude": 51.5073509, <br/>
         "longitude": -0.1277583 <br/>
@@ -50,7 +50,7 @@ Output:
     "hereWeGoCenterPoint": { <br/>
         "latitude": 51.50643, <br/>
         "longitude": -0.12721 <br/>
-    },
+    }, <br/>
     "openStreetMapCenterPoint": { <br/>
         "latitude": 51.5073219 <br/>
         "longitude": -0.1276474 <br/>
