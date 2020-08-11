@@ -24,6 +24,11 @@ import com.location.locationweather.service.herewego.HereWeGoService;
 import com.location.locationweather.service.openstreetmap.OpenStreetMapService;
 import com.location.locationweather.service.openweather.OpenWeatherService;
 
+/**
+ * Class to test the service layer after 
+ * moking the dependent service classes
+ *
+ */
 @ExtendWith(SpringExtension.class)
 public class LocationWeatherServiceTest {
 
@@ -50,6 +55,11 @@ public class LocationWeatherServiceTest {
 	@MockBean
 	private OpenWeatherService openWeatherService;
 
+	/**
+	 * Testing service layer with mocked values
+	 * @throws IOException
+	 * @throws NoResponseFoundException
+	 */
 	@Test
 	public void getLocationWeatherTest() throws IOException, NoResponseFoundException {
 		String locationName = "LONDON";
@@ -74,6 +84,11 @@ public class LocationWeatherServiceTest {
 		assertThat(res).isNotNull();
 	}
 
+	/**
+	 * 
+	 * Testing user defined exception
+	 * @throws IOException
+	 */
 	@Test
 	public void getLocationWeatherTest_NoResponseFoundException() throws IOException {
 		String locationName = null;

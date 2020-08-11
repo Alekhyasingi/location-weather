@@ -19,6 +19,11 @@ public class LocationResourceIntegrationTest {
     @Autowired
     private LocationResource resource;
     
+    /**
+     * 
+     * Method to verify if context is loaded
+     * @throws Exception
+     */
     @Test
 	public void contexLoads() throws Exception {
 		assertThat(resource).isNotNull();

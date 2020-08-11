@@ -23,6 +23,15 @@ class LocationWeatherApplicationTests {
 	@Autowired
 	private MockMvc mockMvc;
 
+	/**
+	 * Method to make integration testing.
+	 * <p>
+	 * Note: please change the CurrentWeather 
+	 * cw object details based on current repose
+	 *  before executing the test case
+	 *  </p>
+	 * @throws Exception
+	 */
 	@Test
 	public void getLocationWeatherTest() throws Exception {
 
